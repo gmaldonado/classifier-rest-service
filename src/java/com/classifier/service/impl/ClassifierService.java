@@ -8,7 +8,7 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
- //http://localhost:8080/classifierweb/rest/options/
+ //http://localhost:8080/classifier-rest-service/rest/options/
 @Path("/options")
 @Produces(MediaType.APPLICATION_JSON)
 public class ClassifierService implements Optionable{
@@ -27,6 +27,13 @@ public class ClassifierService implements Optionable{
         options.add(new Field("Final Radius","int"));
         options.add(new Field("Initial Learning Rate","float"));
         options.add(new Field("Final Learning Rate","float"));
+        options.add(new Field("Boolean field","boolean"));
+         
+        List<String> selectableItems = new ArrayList();
+        selectableItems.add("item1");
+        selectableItems.add("item2");
+        selectableItems.add("item3");
+        options.add(new Field("List field","list",selectableItems));
         return options;
     }
 
